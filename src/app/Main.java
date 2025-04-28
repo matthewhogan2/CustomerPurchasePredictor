@@ -12,7 +12,7 @@ public class Main {
         Customer c3 = new Customer("young", "low", "none", "yes", "yes");
         Customer c4 = new Customer("old", "high", "many", "no", "no");
 
-        // Create a Dataset and add customers
+        // Create a data set and add customers
         Dataset dataset = new Dataset();
         dataset.addCustomer(c1);
         dataset.addCustomer(c2);

@@ -30,7 +30,7 @@ public class PredictorGUI extends JFrame {
 
         ageBox = new JComboBox<>(new String[]{"young", "old"});
         incomeBox = new JComboBox<>(new String[]{"high", "low"});
-        prevBox = new JComboBox<>(new String[]{"none", "many"});
+        prevBox = new JComboBox<>(new String[]{"no", "yes"});
         promoBox = new JComboBox<>(new String[]{"yes", "no"});
 
         add(new JLabel("Age Group:"));        add(ageBox);
