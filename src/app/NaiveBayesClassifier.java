@@ -3,8 +3,7 @@ package app;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-public class NaiveBayesClassifier {
+public class NaiveBayesClassifier{
 	
 	//Training data counts yes and no from customers placed in hashmap frequncy table sepretly
 	private Dataset dataset;
@@ -68,18 +67,18 @@ public class NaiveBayesClassifier {
 	//Method for prediction
 	public String predict(Customer customer) {
 	    double yesProbability = calculateProbability(yesCounts, customer, totalYes);
-	    double noProbability = calculateProbability(noCounts, customer, totalNo);
-	    return yesProbability > noProbability ? "yes" : "no";
+	    double noProbability=calculateProbability(noCounts, customer, totalNo);
+	    return yesProbability> noProbability ? "yes" : "no";
 	}
 	
 	//helper
 	private double calculateProbability(Map<String, Map<String, Integer>> counts, Customer customer, int total) {
 	    double probability= 1.0; //starts at 1 and multiply's
-	    probability*= getFeatureProbability(counts, "ageGroup", customer.getAgeGroup(), total);
-	    probability *= getFeatureProbability(counts, "incomeLevel", customer.getIncomeLevel(), total);
-        probability *= getFeatureProbability(counts, "previousPurchases", customer.getPreviousPurchases(), total);
-        probability *= getFeatureProbability(counts, "promoInterest", customer.getPromoInterest(), total);
-	    probability *= ((double) total) /  (totalYes + totalNo);
+	    probability*=getFeatureProbability(counts, "ageGroup", customer.getAgeGroup(), total);
+	    probability*=getFeatureProbability(counts, "incomeLevel", customer.getIncomeLevel(), total);
+        probability*=getFeatureProbability(counts, "previousPurchases", customer.getPreviousPurchases(), total);
+        probability*=getFeatureProbability(counts, "promoInterest", customer.getPromoInterest(), total);
+	    probability*=((double) total) /  (totalYes + totalNo);
 	    
 	    return probability;
 	}
@@ -87,13 +86,15 @@ public class NaiveBayesClassifier {
 	
 	private double getFeatureProbability(Map<String, Map<String, Integer>> counts, String feature, String value, int total) {
 	    
-		if (!counts.containsKey(feature)) {
+		if (!counts.containsKey(feature)) {// avoid crash return 0
 	    	return 1.0 / total;
 	    }
-	    
+		
+		//adding 1 to count and 2 to total will stop zero probabilities (Laplace smoothing).
+		//if the value was never seen it still gets a small chance instead of breaking prediction.
 	    Map<String, Integer> valueCounts = counts.get(feature);
-	    int count =valueCounts.getOrDefault(value, 0);
-	    return((double) count + 1)/ ((double) total + 2);//avioid 0 division
+	    int count =valueCounts.getOrDefault(value, 0);// how many times this value was seen in training
+	    return((double) count + 1)/ ((double) total + 2);
 	}
 
 	
