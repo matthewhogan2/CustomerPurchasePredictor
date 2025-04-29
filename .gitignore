@@ -1,10 +1,6 @@
 .DS_Store
-
-# Eclipse / built classes
 bin/
 *.class
-
-# IDE metadata (optional)
 .project
 .classpath
 .settings/
