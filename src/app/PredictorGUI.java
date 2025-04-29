@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 public class PredictorGUI extends JFrame {
 	
 	
-	private JComboBox<String> labelBox;
+    private JComboBox<String> labelBox;
     private JComboBox<String> ageBox;
     private JComboBox<String> incomeBox;
     private JComboBox<String>prevBox;
