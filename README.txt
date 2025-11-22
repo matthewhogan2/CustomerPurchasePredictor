@@ -13,11 +13,10 @@ features:
 			-Income
 			-Previous Purchase
 			-Promotion Interest
-It Uses a Naive bayes classifier for prediction and a GUI for user input. The theme assigned to me was 
-'CustomerMadePurchase'
-
+It Uses a Naive bayes classifier for prediction and a GUI for user input.
 Data frequency table:
 ----------------------						
+
 						| Feature             | Possible Values | Description                          
 |---------------------|------------------|---------------------------------------|
 | Age group           | young, old       | customers age group                   |
