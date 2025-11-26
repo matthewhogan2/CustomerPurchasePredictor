@@ -60,13 +60,4 @@ Instructions:
 4.) Prediction change enter same values change 'made Purchase' click 'add customer' 10+ times then click predict again.
 5.) Observe accuracy in console.
 
-Notes:
--------
-> Predictions and training based off categorical data
-> All coded with java. d
-> Customer data values was AI generated and pasted into excel.
-> Git used towards end to capture final development changes
-> Level 1 was being worked on and hard coded but later removed as highlighted previously.Personal choice as I Wanted focus my energy on 
-  the other levels.
->
- 
+
