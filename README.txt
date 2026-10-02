@@ -1,9 +1,6 @@
 Customer Purchase Predictor
 
 Author: 	Matthew Hogan
-Student ID: c23433226
-Module: 	Object Orientated Programming CMPU 2016
-Course:		857/2
 
 Project Overview
 -----------------
